@@ -43,7 +43,7 @@ app.get("/api/:date",(req, res)=>{
 });
 app.get("/api", function (req, res) {
   res.json({
-    unix:new Date().getDate(),
+    unix: new Date().getDate(),
     utc: new Date().toUTCString()
   });
 });
