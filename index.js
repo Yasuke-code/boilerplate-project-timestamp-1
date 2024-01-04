@@ -20,14 +20,32 @@ app.get("/", function (req, res) {
 });
 
 
+const isitvalid=(date)=> date.toUTCString() === "notValid"
+
+
 // your first API endpoint... 
+app.get("/api/:date",(req, res)=>{
+  let date= new Date(req.params.date);
+  if(isitvalid(date)){
+    date= new Date(+req.params.date)
+  }
+  if(isitvalid(date)){
+    res.json({
+      Error:"notValid"
+      
+    });
+    return;
+  }
+  res.json({
+    unix:date.getTime(),
+    utc:date.toUTCString()
+  });
+});
 app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
 
-app.get("/api/timestamp/:date",(req, res)=>{
-  res.json({"erorr":"invalid"})
-})
+
 
 
 
