@@ -20,7 +20,7 @@ app.get("/", function (req, res) {
 });
 
 
-const isitvalid=(date)=> date.toUTCString() === "notValid"
+const isitvalid=(date)=> date.toUTCString() === "Invalid Date"
 
 
 // your first API endpoint... 
@@ -31,7 +31,7 @@ app.get("/api/:date",(req, res)=>{
   }
   if(isitvalid(date)){
     res.json({
-      Error:"notValid"
+      error:"notValid"
       
     });
     return;
