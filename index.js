@@ -41,9 +41,10 @@ app.get("/api/:date",(req, res)=>{
     utc:date.toUTCString()
   });
 });
+
 app.get("/api", function (req, res) {
   res.json({
-    unix: new Date().getDate(),
+    unix: new Date().getTime(),
     utc: new Date().toUTCString()
   });
 });
@@ -53,6 +54,6 @@ app.get("/api", function (req, res) {
 
 
 // listen for requests :)
-var listener = app.listen(process.env.PORT, function () {
-  console.log('Your app is listening on port ' + listener.address().port);
+var listener = app.listen(3000, function () {
+  console.log('Your app is listening on port ' + 3000);
 });
